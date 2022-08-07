@@ -18,7 +18,12 @@
                 </li>
 
             {{#if loggedIn}}
-            <button id="logout" class="btn-no-style">Logout</button>
+                <li>
+                    <a href="/dashboard">DashBoard</a>
+                </li>
+            <li>
+            <button id="logout">Logout</button>
+            </li>
              {{else}}
                  <li>
                     <a href="/login">Login</a>

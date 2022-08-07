@@ -1,7 +1,8 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Post.findAll({
       where: {
         // use the ID from the session
@@ -19,12 +20,12 @@ router.get('/', withAuth, (req, res) => {
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username', 'twitter', 'github']
+            attributes: ['username']
           }
         },
         {
           model: User,
-          attributes: ['username', 'twitter', 'github']
+          attributes: ['username']
         }
       ]
     })
@@ -39,7 +40,7 @@ router.get('/', withAuth, (req, res) => {
       });
   });
 
-  router.get('/edit/:id', withAuth, (req, res) => {
+  router.get('/edit/:id', (req, res) => {
     Post.findOne({
       where: {
         id: req.params.id
@@ -85,7 +86,7 @@ router.get('/', withAuth, (req, res) => {
       });
 });
 
-router.get('/create/', withAuth, (req, res) => {
+router.get('/create/', (req, res) => {
     Post.findAll({
       where: {
         // use the ID from the session

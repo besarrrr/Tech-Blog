@@ -22,3 +22,7 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions<br>
 
 ![image](/media/Screenshot%202022-08-07%20184859.png)
 
+
+## Deployed Site
+
+https://damp-meadow-03869.herokuapp.com/
